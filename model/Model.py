@@ -83,3 +83,18 @@ class CustomersSchema(ma.Schema):
     dob = fields.Date()
     date_registered = fields.DateTime()
 
+
+class OrderRename(db.Model):
+    __tablename__ = 'order_rename'
+    id = db.Column(db.Integer, primary_key=True)
+    order_id = db.Column(db.String(120), unique=True, nullable=False)
+    food_sku = db.Column(db.String(100), unique=True, nullable=False)
+    food_id = db.Column(db.Integer)
+    amount = db.Column(db.FLOAT)
+    datetime_to_deliver = db.Column(db.DateTime)
+    datetime_ordered = db.Column(db.DateTime)
+    datetime_order_picked = db.Column(db.DateTime)
+    picked = db.Column(db.Integer)
+    picked_by = db.Column(db.String(120))
+    riderid = db.Column(db.Integer)
+    customerid = db.Column(db.Integer)
